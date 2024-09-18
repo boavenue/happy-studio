@@ -1,0 +1,12 @@
+---
+type Props = {
+  position?: 'left' | 'right' | 'center';
+};
+
+const { position = 'left' } = Astro.props;
+---
+<section class={`three-line d-flex flex-column ${position}`}>
+  <div class="three-line__line"></div>
+  <div class="three-line__line"></div>
+  <div class="three-line__line"></div>
+</section>

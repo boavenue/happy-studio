@@ -1,0 +1,52 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import CardTitle from './CardTitle.astro';
+type Props = {
+  title?: string;
+  position?: 'left' | 'right';
+  colorTitle?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  imagePriUrl?: string;
+  imageSubUrl?: string;
+};
+
+const {
+  title,
+  position = 'left',
+  colorTitle = "cl-black",
+  description,
+  buttonText,
+  buttonLink,
+  imagePriUrl,
+  imageSubUrl,
+} = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}')
+---
+<div class={`card-block-full ${position}`}>
+  <div class="row align-items-center">
+    <div class="col-6 position-relative card-block-full__first">
+      <div class="card-block-full__left">
+        {imagePriUrl && (
+          <div class="card-block-full__pri">
+            <Image src={images[imagePriUrl]() as any} alt={title || "Room Image"} class:list="img-width" inferSize={true} quality={30} />
+          </div>
+        )}
+        {imageSubUrl && (
+          <div class="card-block-full__sub sd-big radius-12">
+            <Image src={images[imageSubUrl]() as any} alt={title || "Room Image"} class:list="img-width radius-12" inferSize={true} quality={30} />
+          </div>
+        )}
+      </div>
+    </div>
+    <div class="col-6 card-block-full__second">
+      <div class="card-block-full__right cs-lg-px-110">
+        <CardTitle title={title} colorTitle={colorTitle} description={description} buttonText={buttonText} buttonLink={buttonLink}/>
+      </div>
+    </div>
+    
+  </div>
+</div>

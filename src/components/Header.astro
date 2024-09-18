@@ -1,0 +1,68 @@
+---
+
+---
+
+<div class="header-hamburger sd-lg">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+    ><path
+      d="M16 132h416c8.8 0 16-7.2 16-16V76c0-8.8-7.2-16-16-16H16C7.2 60 0 67.2 0 76v40c0 8.8 7.2 16 16 16zm0 160h416c8.8 0 16-7.2 16-16v-40c0-8.8-7.2-16-16-16H16c-8.8 0-16 7.2-16 16v40c0 8.8 7.2 16 16 16zm0 160h416c8.8 0 16-7.2 16-16v-40c0-8.8-7.2-16-16-16H16c-8.8 0-16 7.2-16 16v40c0 8.8 7.2 16 16 16z"
+    ></path></svg
+  >
+</div>
+<div class="overlay-background"></div>
+<header
+  class="header d-flex flex-column justify-content-center cs-px-40 cs-lg-px-60 cd-py-40 cs-lg-py-60"
+>
+  <div class="header-close">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"
+      ><path
+        d="M242.7 256l100.1-100.1c12.3-12.3 12.3-32.2 0-44.5l-22.2-22.2c-12.3-12.3-32.2-12.3-44.5 0L176 189.3 75.9 89.2c-12.3-12.3-32.2-12.3-44.5 0L9.2 111.5c-12.3 12.3-12.3 32.2 0 44.5L109.3 256 9.2 356.1c-12.3 12.3-12.3 32.2 0 44.5l22.2 22.2c12.3 12.3 32.2 12.3 44.5 0L176 322.7l100.1 100.1c12.3 12.3 32.2 12.3 44.5 0l22.2-22.2c12.3-12.3 12.3-32.2 0-44.5L242.7 256z"
+      ></path></svg
+    >
+  </div>
+  <div class="container">
+    <div class="header-nav d-flex flex-column">
+      <div class="header-nav__logo">
+        <img
+          src="/images/happy-time-logo-yellow-ver2.svg"
+          alt="Happy Studio, NetFlix & Chill"
+          class="header__logo"
+        />
+      </div>
+      <ul class="header-nav__menu d-flex flex-column">
+        <li class="header-nav__menu-item">
+          <a href="/" class="header-nav__menu-link cs-fs-30">Loại Phòng</a>
+        </li>
+        <li class="header-nav__menu-item">
+          <a href="/contact" class="header-nav__menu-link cs-fs-30">Về Studio</a
+          >
+        </li>
+        <li class="header-nav__menu-item">
+          <a href="/" class="header-nav__menu-link cs-fs-30">Liên Hệ</a>
+        </li>
+        <li class="header-nav__menu-item">
+          <a href="/contact" class="header-nav__menu-link cs-fs-30">Đặt Ngay</a>
+        </li>
+      </ul>
+      <div class="header-nav__footer">
+        <p>
+          Copyright © 2024. All rights reserved. <br />Được phát triển bởi
+          <a
+            class="fn__link"
+            href="https://www.instagram.com/hiiamboo.pug/"
+            target="_blank"
+            rel="noreferrer">N.N</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
+<script is:inline>
+  $(".header-hamburger").on("click", function () {
+    $("body").addClass("show");
+  });
+  $(".overlay-background, .header-close").on("click", function () {
+    $("body").removeClass("show");
+  });
+</script>

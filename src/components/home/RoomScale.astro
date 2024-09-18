@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+import roomScale1 from '../../assets/scale/room-scale-1.jpg';
+import roomScale2 from '../../assets/scale/room-scale-2.jpg';
+---
+<section class="room-scale">
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="col-6 text-end">
+        <Image src={roomScale1 as any} alt="Không gian sống" inferSize={true} quality={30} class="room-scale__img sd-big radius-12"/>
+      </div>
+      <div class="col-6 text-start">
+        <Image src={roomScale2 as any} alt="Không gian sống" inferSize={true} quality={30} class="room-scale__img-2 sd-big radius-12"/>
+      </div>
+    </div>
+  </div>
+</section>

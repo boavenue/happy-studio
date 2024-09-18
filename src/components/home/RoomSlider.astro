@@ -1,0 +1,88 @@
+---
+import CardTitle from "../CardTitle.astro";
+import ListRoomSlide from "@components/ListRoomSlide.astro";
+const rooms = [
+  {
+    title: "NQA-101",
+    price: "360.000",
+    imageUrl: "/src/assets/all/nqa-101.jpg",
+    link: "#",
+  },
+  {
+    title: "NQA-102",
+    price: "360.000",
+    imageUrl: "/src/assets/all/nqa-102.jpg",
+    link: "#",
+  },
+  {
+    title: "NQA-201",
+    price: "360.000",
+    imageUrl: "/src/assets/all/nqa-201.jpg",
+    link: "#",
+  },
+  {
+    title: "NQA-202",
+    price: "360.000",
+    imageUrl: "/src/assets/all/nqa-202.jpg",
+    link: "#",
+  },
+  {
+    title: "DBT-402",
+    price: "360.000",
+    imageUrl: "/src/assets/all/dbt-402.jpg",
+    link: "#",
+  },
+  {
+    title: "DBT-502",
+    price: "360.000",
+    imageUrl: "/src/assets/all/dbt-502.jpg",
+    link: "#",
+  },
+  {
+    title: "NTG-01",
+    price: "360.000",
+    imageUrl: "/src/assets/all/ntg-01.jpg",
+    link: "#",
+  },
+  {
+    title: "NTG-02",
+    price: "360.000",
+    imageUrl: "/src/assets/all/ntg-02.jpg",
+    link: "#",
+  },
+  {
+    title: "NTG-03",
+    price: "360.000",
+    imageUrl: "/src/assets/all/ntg-03.jpg",
+    link: "#",
+  },
+  {
+    title: "NTG-03",
+    price: "360.000",
+    imageUrl: "/src/assets/all/ntg-04.jpg",
+    link: "#",
+  },
+];
+---
+
+<div class="section section-list-room cs-py-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <CardTitle
+          title="Ở Đây Có Gì?"
+          colorTitle="cl-yellow"
+          description="Dù bạn đến đây vì công việc hay thư giãn, chỗ nghỉ tại Home mang đến sự hài hòa giữa nét tinh tế hiện đại và phong cách cổ điển. Với không gian linh hoạt, Home đáp ứng mọi nhu cầu, đảm bảo sự thoải mái cho mỗi vị khách."
+        />
+      </div>
+    </div>
+  </div>
+  <div class="cs-mt-40 cs-lg-mt-60">
+    <ListRoomSlide rooms={rooms} />
+    <div class="container">
+      <div class="cus-button text-center cs-mt-40">
+        <a href="#" class="button button-default sd-lg">Tất Cả</a>
+      </div>
+    </div> 
+  </div>
+</div>

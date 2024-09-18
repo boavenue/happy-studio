@@ -1,0 +1,37 @@
+---
+type Props = {
+  title?: string;
+  colorTitle?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+};
+
+const {
+  title,
+  colorTitle = "cl-black",
+  description,
+  buttonText,
+  buttonLink,
+} = Astro.props;
+---
+
+<div class="card-block-title">
+  <div class="card-block-title__inner d-flex flex-column">
+    {
+      title && (
+        <h2 class={`title lt-05 fw-400 ${colorTitle} cs-fs-50`} set:html={title}></h2>
+      )
+    }
+    {description && <p class="description lh-18 cs-mb-0" set:html={description}></p>}
+    {
+      buttonText && buttonLink && (
+        <div class="cus-button cs-mt-20">
+          <a href={buttonLink} class="button button-default sd-lg">
+            {buttonText}
+          </a>
+        </div>
+      )
+    }
+  </div>
+</div>

@@ -1,0 +1,51 @@
+.card-block-title {
+  &__inner {
+    gap: 20px;
+  }
+}
+
+
+.card-block-full {
+  min-height: 700px;
+  position: relative;
+  overflow: hidden;
+
+  &.right {
+    .card-block-full {
+      &__first {
+        order: 2;
+      }
+
+      &__sub {
+        right: auto;
+        left: -50px;
+      }
+    }
+  }
+
+  &__left,
+  &__pri {
+    height: 700px;
+  }
+
+  &__pri {
+    img {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  &__sub {
+    position: absolute;
+    width: 230px;
+    height: 80%;
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%);
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

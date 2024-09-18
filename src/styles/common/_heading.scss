@@ -1,0 +1,94 @@
+@mixin font-weights($weights) {
+  @each $weight, $value in $weights {
+    .fw-#{$weight} {
+      font-weight: $value;
+    }
+  }
+}
+
+@mixin line-heights($lineheights) {
+  @each $lh, $value in $lineheights {
+    .lh-#{$lh} {
+      line-height: $value;
+    }
+  }
+}
+
+
+$dreamAvenue: (
+  ("../../../fonts/Dream-Avenue", 400, normal),
+);
+
+$caligana: (
+  ("../../../fonts/DFVNCalignaRegular", 400, normal),
+);
+
+@each $font in $dreamAvenue {
+  @include font-face("Dream-Avenue",
+    nth($font, 1),
+    nth($font, 2),
+    nth($font, 3));
+}
+
+@each $font in $caligana {
+  @include font-face("DFVNCalignaRegular",
+    nth($font, 1),
+    nth($font, 2),
+    nth($font, 3));
+}
+
+$font-weights: (
+  300: 300,
+  400: normal,
+  500: 500,
+  600: 600,
+  700: 700,
+  900: 900,
+);
+
+$line-heights: (
+  11: 1.1,
+  12: 1.2,
+  13: 1.3,
+  14: 1.4,
+  15: 1.5,
+  16: 1.6,
+  17: 1.7,
+  18: 1.8,
+  19: 1.9,
+);
+
+@include font-weights($font-weights);
+@include line-heights($line-heights);
+
+.font-merri {
+  font-family: var(--font-merri);
+}
+
+.font-dream {
+  font-family: var(--font-dream);
+}
+
+.font-caligana {
+  font-family: var(--font-caligana);
+}
+
+.cl-yellow {
+  color: var(--cl-yellow);
+}
+
+.cl-dark-black {
+  color: var(--cl-dark-black);
+}
+
+.cl-black {
+  color: var(--cl-black);
+}
+
+.lt-05 {
+  letter-spacing: -0.5px;
+}
+
+.lt-1 {
+  letter-spacing: -1px;
+}

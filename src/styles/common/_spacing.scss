@@ -1,0 +1,156 @@
+$spacer: 1rem !default;
+$default-px: 16;
+$spacers: (
+  ) !default;
+
+@for $i from 0 through 250 {
+  $spacers: map-merge($spacers,
+      ($i: $spacer * calc($i / $default-px),
+      )
+  );
+}
+
+@mixin create-spacing-class($size, $value, $breakpoint: null) {
+  $prefix: if($breakpoint, "cs-#{$breakpoint}-", "cs-");
+
+  .#{$prefix}m-#{$size} {
+    margin: $value !important;
+  }
+
+  .#{$prefix}mx-#{$size} {
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+
+  .#{$prefix}my-#{$size} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+
+  .#{$prefix}p-#{$size} {
+    padding: $value !important;
+  }
+
+  .#{$prefix}px-#{$size} {
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+
+  .#{$prefix}py-#{$size} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+
+  .#{$prefix}mt-#{$size} {
+    margin-top: $value !important;
+  }
+
+  .#{$prefix}mb-#{$size} {
+    margin-bottom: $value !important;
+  }
+
+  .#{$prefix}ms-#{$size} {
+    margin-inline-start: $value !important;
+  }
+
+  .#{$prefix}me-#{$size} {
+    margin-inline-end: $value !important;
+  }
+
+  .#{$prefix}pt-#{$size} {
+    padding-top: $value !important;
+  }
+
+  .#{$prefix}pb-#{$size} {
+    padding-bottom: $value !important;
+  }
+
+  .#{$prefix}ps-#{$size} {
+    padding-inline-start: $value !important;
+  }
+
+  .#{$prefix}pe-#{$size} {
+    padding-inline-end: $value !important;
+  }
+}
+
+@mixin generate-spacing-classes($breakpoints: null) {
+  @if $breakpoints {
+    @each $breakpoint, $min-width in $breakpoints {
+      @media (min-width: $min-width) {
+        @each $size, $value in $spacers {
+          @include create-spacing-class($size, $value, $breakpoint);
+        }
+      }
+    }
+  }
+
+  @else {
+    @each $size, $value in $spacers {
+      @include create-spacing-class($size, $value);
+    }
+  }
+}
+
+@mixin create-gutter-class($size, $value, $breakpoint: null) {
+  $prefix: if($breakpoint, "cs-#{$breakpoint}-", "cs-");
+
+  .#{$prefix}gx-#{$size} {
+    --bs-gutter-x: #{$value} !important;
+  }
+
+  .#{$prefix}gy-#{$size} {
+    --bs-gutter-y: #{$value} !important;
+  }
+}
+
+@mixin generate-gutter-classes($breakpoints: null) {
+  @if $breakpoints {
+    @each $breakpoint, $min-width in $breakpoints {
+      @media (min-width: $min-width) {
+        @each $size, $value in $spacers {
+          @include create-gutter-class($size, $value, $breakpoint);
+        }
+      }
+    }
+  }
+
+  @else {
+    @each $size, $value in $spacers {
+      @include create-gutter-class($size, $value);
+    }
+  }
+}
+
+@mixin create-font-size-class($size, $value, $breakpoint: null) {
+  $prefix: if($breakpoint, "cs-#{$breakpoint}-", "cs-");
+
+  .#{$prefix}fs-#{$size} {
+    font-size: $value !important;
+  }
+}
+
+@mixin generate-font-size-classes($breakpoints: null) {
+  @if $breakpoints {
+    @each $breakpoint, $min-width in $breakpoints {
+      @media (min-width: $min-width) {
+        @each $size, $value in $spacers {
+          @include create-font-size-class($size, $value, $breakpoint);
+        }
+      }
+    }
+  }
+
+  @else {
+    @each $size, $value in $spacers {
+      @include create-font-size-class($size, $value);
+    }
+  }
+}
+
+@include generate-spacing-classes();
+@include generate-spacing-classes($breakpoints);
+@include generate-gutter-classes();
+@include generate-gutter-classes($breakpoints);
+@include generate-font-size-classes();
+@include generate-font-size-classes($breakpoints);

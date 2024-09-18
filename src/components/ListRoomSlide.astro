@@ -1,0 +1,73 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+type Room = {
+  title?: string;
+  price?: string;
+  link?: string;
+  imageUrl?: string;
+};
+
+type Props = {
+  rooms: Room[];
+};
+
+const { rooms } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}')
+---
+
+<div class="list-room-slider">
+  <div class="swiper cs-md-ps-60 cs-lg-ps-80">
+    <div class="swiper-wrapper">
+      {
+        rooms.map((room) => (
+          <div class="swiper-slide cs-px-20 cs-md-px-0 cs-md-me-20 cs-lg-me-40">
+            <div class="list-room-slider__item ">
+              {room.imageUrl && (
+                <div class="list-room-slider__thumbnail radius-12">
+                  <a href={room.link && room.link} class="position-link"></a>
+                  <Image src={images[room.imageUrl]() as any} alt={room.title || "Room Image"} class:list={'list-room-slider__img'} inferSize={true} quality={30} />
+                </div>
+              )}
+              <div class="list-room-slider__info d-flex justify-content-between align-items-center cs-mt-20">
+                {room.title && (
+                  <a href={room.link && room.link}>
+                    <h3 class="title fw-400 cs-fs-28 cl-yellow cs-mb-0">{room.title}</h3>
+                  </a>
+                )}
+                {room.price && (
+                  <p class="price cs-fs-20 cl-black fw-600 cs-mb-0 text-end lh-1">
+                    <span class="cs-fs-10 cl-yellow-hover fw-400">từ</span>
+                    {room.price}
+                    <span class="cs-fs-10 cl-yellow-hover fw-400">VND</span>
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+<script is:inline>
+  new Swiper(".swiper", {
+    direction: "horizontal",
+    loop: true,
+    breakpoints: {
+      991: {
+        slidesPerView: 2,
+        centeredSlides: true, 
+      },
+      992: {
+        slidesPerView: 3,
+        centeredSlides: false,
+      },
+      1200: {
+        slidesPerView: 4,
+        centeredSlides: false,
+      },
+    },
+  });
+</script>
