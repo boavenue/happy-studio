@@ -40,12 +40,12 @@ const { calendarId } = Astro.props;
       noEventsText: 'Không có sự kiện nào để hiển thị',
       locale: 'vi',
       aspectRatio: 'auto', // Set auto height
-      windowResize: function(view) {
+      windowResize: function() {
           calendar.setOption('aspectRatio', 'auto');
       },
       eventContent: (arg) => { // Tùy chỉnh nội dung của sự kiện
           console.log(arg.event);
-          const { title, start, end, extendedProps } = arg.event;
+          const { title, start, end } = arg.event;
           const startTime = start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false});
           const endTime = end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
           return { 

@@ -1,8 +1,10 @@
 import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
 
+import netlify from "@astrojs/netlify";
+
 export default defineConfig({
-  output: "static",
+  output: "server",
   vite: {
     server: {
       host: '0.0.0.0',
@@ -27,4 +29,7 @@ export default defineConfig({
       },
     },
   },
+  adapter: netlify({
+    edgeMiddleware: true
+  }),
 });

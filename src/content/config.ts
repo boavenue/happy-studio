@@ -1,6 +1,6 @@
 import { z, defineCollection } from 'astro:content';
 
-const roomsSchema = (image) => z.object({
+const roomsSchema = (image: any) => z.object({
   id: z.string(),
   title: z.string(),
   description: z.string(),

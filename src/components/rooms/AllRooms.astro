@@ -1,12 +1,11 @@
 ---
 import RoomList from "@components/rooms/RoomList.astro";
 import CardTitle from "@components/CardTitle.astro";
-import ThreeLine from "@components/ThreeLine.astro";
 import RoomThanks from "@components/home/RoomThanks.astro";
 import { Image } from "astro:assets";
-import Banner from "@components/Banner.astro";
-import RoomScale from "@components/home/RoomScale.astro";
-import { getCollection } from "astro:content";
+// import Banner from "@components/Banner.astro";
+// import RoomScale from "@components/home/RoomScale.astro";
+// import { getCollection } from "astro:content";
 const roomNQA = [
   {
     title: "NQA-101",
@@ -73,7 +72,6 @@ const roomNTG = [
     link: "/phong/ntg-04",
   },
 ];
-const rooms = await getCollection("rooms");
 ---
 
 <section class="section-list-rooms cs-pt-60 cs-pb-100">

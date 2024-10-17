@@ -1,12 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+// import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
-import Banner from "@components/Banner.astro";
 import Footer from "@components/Footer.astro";
 import AllRooms from "@components/rooms/AllRooms.astro";
-const rooms = await getCollection("rooms");
-console.log('rooms', rooms);
+// const rooms = await getCollection("rooms");
 ---
 
 <Layout title="Happy Studio - Netflix & Chill">

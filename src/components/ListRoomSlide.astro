@@ -7,7 +7,7 @@ const { rooms } = Astro.props;
   <div class="swiper cs-ps-40">
     <div class="swiper-wrapper">
       {
-        rooms.map((room) => (
+        rooms.map((room: any) => (
           <div class="swiper-slide cs-me-15 cs-md-px-10 cs-md-me-20">
             <CardRoom
               imageUrl={room.imageUrl}
