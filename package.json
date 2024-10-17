@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
-    "@astrojs/netlify": "^5.5.4",
     "@fullcalendar/core": "^6.1.15",
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/google-calendar": "^6.1.15",

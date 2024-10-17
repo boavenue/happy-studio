@@ -22,7 +22,4 @@ export default defineConfig({
       }
     ],
   },
-  adapter: netlify({
-    edgeMiddleware: true
-  }),
 });
