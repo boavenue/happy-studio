@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+type RoomLocation = {
+  title?: string;
+  description?: string;
+  imageUrl?: string;
+};
+
+type Props = {
+  roomLocations: RoomLocation[];
+};
+
+const { roomLocations } = Astro.props;
+---
+
+{
+  roomLocations &&
+    roomLocations.map((room) => (
+      <div class="card-block-location radius-12 sd-lg position-relative overflow-hidden">
+        {room.imageUrl && (
+          <div class="card-block-location__thumbnail">
+            <Image
+              src={room.imageUrl}
+              alt={room.title || "Room Image"}
+              class:list={"img-width"}
+              width={1356}
+              height={904}
+              quality={30}
+            />
+          </div>
+        )}
+        <div class="card-block-location__content cs-p-16 cs-md-p-40">
+          {room.title && (
+            <h3
+              class=" d-flex flex-column flex-md-row align-items-md-center fw-700 cl-white cs-mb-12"
+              set:html={room.title}
+            />
+          )}
+          {room.description && (
+            <div
+              class="d-none d-md-block cl-white fw-400 cs-mb-0"
+              set:html={room.description}
+            />
+          )}
+        </div>
+      </div>
+    ))
+}

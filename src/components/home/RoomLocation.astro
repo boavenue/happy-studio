@@ -1,0 +1,52 @@
+---
+import CardRoomLocation from "@components/CardRoomLocation.astro";
+
+const rooms = [
+  {
+    title:
+      '<span>NQA</span><span class="cs-ps-5 d-none d-md-inline-block">|</span><span class="cs-sm-ps-5 cs-fs-16 fw-400 cs-mb-0">56/5 Nguyễn Quý Anh. Tân Phú</span>',
+    description:
+      "<p>Mang đến những trải nghiệm đa dạng mà vẫn giữ nguyên sự yên bình ngay tại chốn ghé đến. Cứ đến và cảm nhận thôi!</p>",
+    imageUrl: "/src/assets/location/nqa.jpg",
+  },
+  {
+    title:
+      '<span>DBT</span><span class="cs-ps-5 d-none d-md-inline-block">|</span><span class="cs-sm-ps-5 cs-fs-16 fw-400 cs-mb-0">63 Dương Bá Trạc. Quận 8</span>',
+    description:
+      "<p>Từ thiết kế tinh tế đến đầy đủ tiện ích. Mang đến trải nghiệm thư giãn tuyệt đối cho cả nghỉ ngơi và công việc</p>",
+    imageUrl: "/src/assets/location/dbt.jpg",
+  },
+  {
+    title:
+      '<span>NTG</span><span class="cs-ps-5 d-none d-md-inline-block">|</span><span class="cs-sm-ps-5 cs-fs-16 fw-400 cs-mb-0">47/51/19d Nguyễn Tư Giản. Gò Vấp</span>',
+    description:
+      "<p>Không gian nhỏ xinh, phong cách ấm cúng, chắc chắn sẽ là nơi lý tưởng cho bạn.</p>",
+    imageUrl: "/src/assets/location/ntg.jpg",
+  },
+];
+const firstRoom = rooms[0];
+const remainingRoom = rooms.slice(1);
+---
+
+<section class="cs-py-80">
+  <div class="container">
+    <h2 class="text-center lt-05 fw-700 cl-yellow cs-fs-50 cs-mb-0">
+      Chi Nhánh Happy Time
+    </h2>
+    <p class="text-center lh-18 cs-mb-0 cs-mt-20">
+      3 địa điểm trên nhiều quận cho bạn<br class="d-block d-md-none" /> ghé thăm
+      tại Thành phố Hồ Chí Minh
+    </p>
+    <div class="row cs-gx-8 cs-lg-gx-24 cs-mt-40 cs-lg-mt-50">
+      <div class="col-6 cs-px-4 cs-lg-px-12 card-block-location-first">
+        <CardRoomLocation roomLocations={[firstRoom]} />
+      </div>
+      <div class="col-6 cs-px-4 cs-lg-px-12 card-block-location-second">
+        <CardRoomLocation roomLocations={remainingRoom} />
+      </div>
+      <div class="cus-button text-center cs-mt-40 cs-lg-mt-50">
+        <a href="/phong" class="button button-default sd-lg">Xem Chi Nhánh</a>
+      </div>
+    </div>
+  </div>
+</section>

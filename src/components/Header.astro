@@ -1,5 +1,5 @@
 ---
-
+import { Image } from "astro:assets";
 ---
 
 <div class="header-hamburger sd-lg">
@@ -23,25 +23,23 @@
   <div class="container">
     <div class="header-nav d-flex flex-column">
       <div class="header-nav__logo">
-        <img
-          src="/images/happy-time-logo-yellow-ver2.svg"
+        <Image
+          src="/src/assets/happy-time-logo-black-ver2.svg"
           alt="Happy Studio, NetFlix & Chill"
-          class="header__logo"
+          width={331}
+          height={220}
+          class="header__logo img-width"
         />
       </div>
       <ul class="header-nav__menu d-flex flex-column">
         <li class="header-nav__menu-item">
-          <a href="/" class="header-nav__menu-link cs-fs-30">Loại Phòng</a>
+          <a href="/" class="header-nav__menu-link cs-fs-30">Trang Chủ</a>
         </li>
         <li class="header-nav__menu-item">
-          <a href="/contact" class="header-nav__menu-link cs-fs-30">Về Studio</a
-          >
+          <a href="/phong" class="header-nav__menu-link cs-fs-30">Loại Phòng</a>
         </li>
         <li class="header-nav__menu-item">
-          <a href="/" class="header-nav__menu-link cs-fs-30">Liên Hệ</a>
-        </li>
-        <li class="header-nav__menu-item">
-          <a href="/contact" class="header-nav__menu-link cs-fs-30">Đặt Ngay</a>
+          <a href="https://www.facebook.com/messages/t/303687992825443" target="_blank" class="header-nav__menu-link cs-fs-30">Đặt Ngay</a>
         </li>
       </ul>
       <div class="header-nav__footer">
@@ -49,7 +47,7 @@
           Copyright © 2024. All rights reserved. <br />Được phát triển bởi
           <a
             class="fn__link"
-            href="https://www.instagram.com/hiiamboo.pug/"
+            href="https://www.facebook.com/keivin.nguyen.1"
             target="_blank"
             rel="noreferrer">N.N</a
           >

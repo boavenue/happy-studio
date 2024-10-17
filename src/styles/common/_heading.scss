@@ -14,28 +14,16 @@
   }
 }
 
+// $dreamAvenue: (("../../../fonts/Dream-Avenue", 400, normal));
 
-$dreamAvenue: (
-  ("../../../fonts/Dream-Avenue", 400, normal),
-);
-
-$caligana: (
-  ("../../../fonts/DFVNCalignaRegular", 400, normal),
-);
-
-@each $font in $dreamAvenue {
-  @include font-face("Dream-Avenue",
-    nth($font, 1),
-    nth($font, 2),
-    nth($font, 3));
-}
-
-@each $font in $caligana {
-  @include font-face("DFVNCalignaRegular",
-    nth($font, 1),
-    nth($font, 2),
-    nth($font, 3));
-}
+// @each $font in $dreamAvenue {
+//   @include font-face(
+//     "Dream-Avenue",
+//     nth($font, 1),
+//     nth($font, 2),
+//     nth($font, 3)
+//   );
+// }
 
 $font-weights: (
   300: 300,
@@ -69,8 +57,8 @@ $line-heights: (
   font-family: var(--font-dream);
 }
 
-.font-caligana {
-  font-family: var(--font-caligana);
+.font-quicksand {
+  font-family: var(--font-quicksand);
 }
 
 .cl-yellow {
@@ -83,6 +71,14 @@ $line-heights: (
 
 .cl-black {
   color: var(--cl-black);
+}
+
+.cl-white {
+  color: var(--cl-white);
+}
+
+.cl-light-white {
+  color: var(--cl-light-white);
 }
 
 .lt-05 {

@@ -1,19 +1,22 @@
-@mixin button-styles($bg-color,
+@mixin button-styles(
+  $bg-color,
   $text-color,
   $bg-hover,
   $bg-active,
   $border-radius: $border-radius,
   $padding: 14px 20px,
-  $transition-duration: 0.3s) {
+  $transition-duration: 0.3s
+) {
   background-color: $bg-color;
-  min-width: 200px;
-  font-weight: 400;
+  min-width: 180px;
   text-align: center;
   display: inline-block;
   color: $text-color;
   border-radius: $border-radius;
   padding: $padding;
   cursor: pointer;
+  font-weight: var(--fw-600);
+
   transition:
     background-color $transition-duration,
     color $transition-duration;
@@ -27,24 +30,47 @@
     background-color: $bg-active;
     color: $text-color;
   }
+
+  @include respond-above(lg) {
+    min-width: 200px;
+  }
 }
 
 .cus-button {
   .button {
     &-default {
-      @include button-styles(var(--cl-yellow),
+      @include button-styles(
+        var(--cl-yellow),
         var(--cl-white),
         var(--cl-yellow-hover),
         var(--cl-yellow-hover),
-        12px);
+        12px
+      );
     }
 
     &-black {
-      @include button-styles(var(--cl-black),
+      @include button-styles(
+        var(--cl-black),
         var(--cl-white),
         var(--cl-dark-black),
         var(--cl-dark-black),
-        12px);
+        12px
+      );
+    }
+
+    &-white {
+      border: 1px solid var(--cl-white);
+      @include button-styles(
+        transparent,
+        var(--cl-white),
+        var(--cl-white),
+        var(--cl-white),
+        12px
+      );
+
+      &:hover {
+        color: var(--cl-yellow) !important;
+      }
     }
   }
 }

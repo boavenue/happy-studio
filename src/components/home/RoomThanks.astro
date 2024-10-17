@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import ThreeLine from "@components/ThreeLine.astro";
+
+const { description, imageUrl, logoColor = 'white', textColor = 'white', bgSectionColor = '#ffa62b'  } = Astro.props;
+---
+
+<section class="cs-pt-40 cs-lg-pt-70">
+  <div class="container position-relative">
+    <div class="cus-three-line d-none d-md-block">
+      <ThreeLine position="right" />
+    </div>
+    <div class="room-thanks position-relative cs-py-40 cs-px-40 cs-lg-px-80" style=`background: ${bgSectionColor}`>
+      <div class="row align-items-center">
+        <div class="col-lg-7 text-center text-lg-start">
+          <div class="cs-lg-pe-60">
+            <div class="cs-mb-30">
+              <Image
+                src={`/src/assets/happy-time-logo-${logoColor}-ver2.svg`}
+                alt="Happy Studio, NetFlix & Chill"
+                width={250}
+                height={167}
+                class="room-thanks__logo img-width"
+              />
+            </div>
+            <div
+              class=`cs-fs-16 cs-mb-0 lh-18 cl-${textColor}`
+              set:html={description || ""}
+            />
+            <!-- <div class="cus-button">
+              <a href="#" class="button button-white cs-mt-20">Tìm Hiểu Thêm</a>
+            </div> -->
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <Image
+            src={imageUrl || ""}
+            alt={description || "Room Thanks Image"}
+            width={448}
+            height={365}
+            quality={30}
+            class="room-thanks__img img-width"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

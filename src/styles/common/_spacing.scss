@@ -1,12 +1,13 @@
 $spacer: 1rem !default;
 $default-px: 16;
-$spacers: (
-  ) !default;
+$spacers: () !default;
 
 @for $i from 0 through 250 {
-  $spacers: map-merge($spacers,
-      ($i: $spacer * calc($i / $default-px),
-      )
+  $spacers: map-merge(
+    $spacers,
+    (
+      $i: $spacer * calc($i / $default-px),
+    )
   );
 }
 
@@ -83,9 +84,7 @@ $spacers: (
         }
       }
     }
-  }
-
-  @else {
+  } @else {
     @each $size, $value in $spacers {
       @include create-spacing-class($size, $value);
     }
@@ -113,9 +112,7 @@ $spacers: (
         }
       }
     }
-  }
-
-  @else {
+  } @else {
     @each $size, $value in $spacers {
       @include create-gutter-class($size, $value);
     }
@@ -139,9 +136,7 @@ $spacers: (
         }
       }
     }
-  }
-
-  @else {
+  } @else {
     @each $size, $value in $spacers {
       @include create-font-size-class($size, $value);
     }

@@ -90,3 +90,19 @@ $breakpoint: map-get($breakpoints, sm);
   -moz-osx-font-smoothing: grayscale;
   content: $content;
 }
+
+@mixin gradient-thumbnail($opacity: 0, $visibility: hidden) {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: $opacity;
+  visibility: $visibility;
+  background: rgba(#222, 0.3);
+  background: radial-gradient(ellipse at 0 100%, rgba(#222, .5), transparent);
+  transition:
+  opacity 300ms ease-in-out,
+  visibility 300ms ease-in-out;
+}

@@ -20,13 +20,20 @@ const {
   <div class="card-block-title__inner d-flex flex-column">
     {
       title && (
-        <h2 class={`title lt-05 fw-400 ${colorTitle} cs-fs-50`} set:html={title}></h2>
+        <h2
+          class={`title lt-05 fw-700 ${colorTitle} cs-fs-50 cs-mb-0`}
+          set:html={title}
+        />
       )
     }
-    {description && <p class="description lh-18 cs-mb-0" set:html={description}></p>}
+    {
+      description && (
+        <p class="description lh-18 cs-mb-0" set:html={description} />
+      )
+    }
     {
       buttonText && buttonLink && (
-        <div class="cus-button cs-mt-20">
+        <div class="cus-button cs-mt-10 cs-mt-lg-20">
           <a href={buttonLink} class="button button-default sd-lg">
             {buttonText}
           </a>

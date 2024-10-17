@@ -1,5 +1,5 @@
 ---
-
+import { Image } from "astro:assets";
 ---
 
 <section class="home-banner">
@@ -9,23 +9,35 @@
     <div class="home-banner__left">
       <div class="home-banner__info d-flex flex-column cs-lg-px-70">
         <h2 class="title fw-900 cs-fs-70">
-          <span class="fw-300 cs-fs-25">Relax & Chill</span>
-          <br />
-          <span class="fw-400 text-uppercase font-dream cl-yellow"
-            >Happy Time Studio</span
-          >
+          <Image
+            src="/src/assets/happy-time-logo-yellow-ver2.svg"
+            alt="Happy Studio, NetFlix & Chill"
+            width={331}
+            height={220}
+            class="img-width"
+            style={"width: 65%"}
+          />
         </h2>
         <p class="description lh-18">
           Với không gian nhỏ xinh, phong cách ấm cúng, home tin rằng bạn sẽ cảm
           nhận được sự gần gũi và thoải mái như chính ngôi nhà của mình.
         </p>
         <div class="cus-button">
-          <a href="#" class="button button-default sd-lg">Khám Phá</a>
+          <a href="#room-introduce" class="button button-default sd-lg"
+            >Khám Phá</a
+          >
         </div>
       </div>
     </div>
+
     <div class="home-banner__right">
-      <img src="/src/assets/banner.webp" alt="Home Banner" class="img-width sd-big" />
+      <Image
+        src="/src/assets/banner.webp"
+        alt="Home Banner"
+        class="img-width sd-big"
+        width={2048}
+        height={1366}
+      />
     </div>
   </div>
 </section>

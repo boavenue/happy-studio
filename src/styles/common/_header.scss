@@ -1,4 +1,4 @@
-@mixin button-press($bg-color, $bg-color-hover) {
+@mixin button-press($bg-color, $bg-color-hover, $isHambuger: false) {
   top: 30px;
   right: 30px;
   width: 60px;
@@ -16,6 +16,18 @@
     width: 50px;
     height: 50px;
     line-height: 45px;
+  }
+
+  
+  @if $isHambuger == true {
+    @include respond-below(md) {
+      right: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 0;
+      border-bottom-left-radius: 12px;
+    }
   }
 
   &:hover {
@@ -55,7 +67,9 @@ body {
   background-color: #ffa62b;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+  transition:
+    opacity 300ms ease-in-out,
+    visibility 300ms ease-in-out;
 }
 
 .header {
@@ -101,11 +115,11 @@ body {
       }
 
       &-link {
-        font-weight: 300;
-        color: var(--cl-yellow);
+        font-weight: 600;
+        color: var(--cl-black);
 
         &:hover {
-          color: var(--cl-yellow-hover);
+          color: var(--cl-yellow);
         }
       }
     }
@@ -114,6 +128,6 @@ body {
   &-hamburger {
     z-index: 12;
     position: fixed;
-    @include button-press(var(--cl-yellow), var(--cl-yellow-hover));
+    @include button-press(var(--cl-yellow), var(--cl-yellow-hover), true);
   }
 }

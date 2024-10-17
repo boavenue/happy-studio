@@ -1,31 +1,61 @@
 .card-block-title {
   &__inner {
-    gap: 20px;
+    gap: 16px;
+
+    @include respond-above(md) {
+      gap: 20px;
+    }
   }
 }
 
-
 .card-block-full {
-  min-height: 700px;
   position: relative;
   overflow: hidden;
+
+  @include respond-above(md) {
+    min-height: 700px;
+  }
 
   &.right {
     .card-block-full {
       &__first {
-        order: 2;
+        @include respond-above(md) {
+          order: 2;
+        }
       }
 
       &__sub {
         right: auto;
         left: -50px;
       }
+
+      &__pri {
+        .img-width {
+          @include respond-above(md) {
+            border-radius: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  &.left {
+    .card-block-full {
+      &__pri {
+        .img-width {
+          @include respond-above(md) {
+            border-radius: 12px;
+          }
+        }
+      }
     }
   }
 
   &__left,
   &__pri {
-    height: 700px;
+    @include respond-above(md) {
+      height: 700px;
+    }
   }
 
   &__pri {
@@ -38,14 +68,86 @@
   &__sub {
     position: absolute;
     width: 230px;
-    height: 80%;
+    height: 65%;
     top: 50%;
     right: -50px;
     transform: translateY(-50%);
+
+    @include respond-above(lg) {
+      height: 80%;
+    }
 
     img {
       height: 100%;
       object-fit: cover;
     }
+  }
+}
+
+.card-block-location {
+  &-first {
+    .card-block-location {
+      height: 100%;
+
+      &__thumbnail {
+        height: 100%;
+
+        .img-width {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  &-second {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    @include respond-above(lg) {
+      gap: var(--spacing-24);
+    }
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &__thumbnail {
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+      @include gradient-thumbnail(1, visible);
+      @include respond-above(lg) {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.take-care {
+  @include respond-below(md) {
+    background-color: #f9f9f9;
+  }
+}
+
+.room-thanks {
+  z-index: 2;
+  border-radius: var(--radius-12);
+  &__logo {
+    width: 150px;
+
+    @include respond-above(md) {
+      width: 250px;
+    }
+  }
+
+  &__img {
+    filter: drop-shadow(0px 7px 15px rgba(#222222, 0.6));
   }
 }

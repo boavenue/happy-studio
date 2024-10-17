@@ -1,0 +1,72 @@
+---
+// const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
+// const calendarId = 'boavenuefew@gmail.com'; // Thay thế bằng ID lịch của bạn
+
+type Props = {
+  calendarId: string;
+};
+
+const { calendarId } = Astro.props;
+---
+<div class="custom-calendar cs-mt-20">
+  <div id="calendar" data-id={calendarId}></div>
+</div>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+    const calendarId = calendarEl.getAttribute('data-id');
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next',
+        center: 'title',
+        right: 'listDay,listWeek,listMonth,listYear'
+      },
+      initialView: 'listDay',
+      displayEventTime: false,
+      googleCalendarApiKey: 'AIzaSyD5gdkz1cmkFvapshmoGZml3qg3fl78vrQ',
+      // events: 'boavenuefew@gmail.com',
+      // events: '9b50307e2fc02e23a50b832656e18109db18e4fff46b8c3fb2f633f4e57a0e27@group.calendar.google.com',
+      events: calendarId ? calendarId : '',
+      buttonText: {
+        today: 'Hôm nay',
+        month: 'Tháng',
+        week: 'Tuần',
+        day: 'Ngày',
+        listYear: 'Năm'
+      },
+      displayBlock: true,
+      allDayText: 'Cả ngày',
+      noEventsText: 'Không có sự kiện nào để hiển thị',
+      locale: 'vi',
+      aspectRatio: 'auto', // Set auto height
+      windowResize: function(view) {
+          calendar.setOption('aspectRatio', 'auto');
+      },
+      eventContent: (arg) => { // Tùy chỉnh nội dung của sự kiện
+          console.log(arg.event);
+          const { title, start, end, extendedProps } = arg.event;
+          const startTime = start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false});
+          const endTime = end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+          return { 
+            html: 
+              `<div class="cs-p-12 calendar-time-item sd-md radius-8">
+                <div class="d-flex align-items-center">
+                  <div class="icon cs-me-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 24px; width: 24px; fill: currentcolor;"><path d="M11.67 0v1.67h8.66V0h2v1.67h6a2 2 0 0 1 2 1.85v16.07a2 2 0 0 1-.46 1.28l-.12.13L21 29.75a2 2 0 0 1-1.24.58H6.67a5 5 0 0 1-5-4.78V3.67a2 2 0 0 1 1.85-2h6.15V0zm16.66 11.67H3.67v13.66a3 3 0 0 0 2.82 3h11.18v-5.66a5 5 0 0 1 4.78-5h5.88zm-.08 8h-5.58a3 3 0 0 0-3 2.82v5.76zm-18.58-16h-6v6h24.66v-6h-6v1.66h-2V3.67h-8.66v1.66h-2z"></path></svg>
+                  </div>
+                  <div class="cs-ps-10 info">
+                    <div class="d-flex align-items-center cs-fs-16 lh-12 fw-700 cl-yellow cs-mb-2"><span class="cs-pe-10">${title}</span> <span class="status-done cl-white cs-fs-10 cs-py-3 cs-px-10 radius-8 bg-medium-green">Đã đặt</span></div>
+                    <span class="cs-fs-14 lh-12 cl-black cs-mt-5"><span class="cl-dark-black fw-700 cs-pe-2">Nhận phòng:</span>  ${startTime} / <span class="cl-dark-black fw-700 cs-pe-2">Trả phòng:</span> ${endTime}</span>
+                  </div>
+                </div>
+              </div>` 
+          }; 
+        },
+      eventClick: function(info) {
+        info.jsEvent.preventDefault();
+      }
+    });
+    calendar.render();
+  });
+</script>

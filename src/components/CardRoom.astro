@@ -1,0 +1,59 @@
+---
+type Props = {
+  title?: string;
+  price?: string;
+  link?: string;
+  imageUrl?: string;
+};
+
+const { title, price, link, imageUrl } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<div class="list-room-slider__item">
+  {
+    imageUrl && (
+      <div class="list-room-slider__thumbnail radius-12">
+        <a href={link && link} class="position-link" />
+        <Image
+          src={imageUrl}
+          alt={title || "Room Image"}
+          class:list={"list-room-slider__img sd-big"}
+          width={"393"}
+          height={"479"}
+          quality={30}
+        />
+        <Image
+          src="/src/assets/happy-time-logo-white-ver2.svg"
+          alt={title || "Happy Studio Logo"}
+          class:list={"list-room-slider__logo"}
+          width={"393"}
+          height={"479"}
+          quality={30}
+        />
+      </div>
+    )
+  }
+  <div
+    class="list-room-slider__info d-flex justify-content-between align-items-center cs-mt-20"
+  >
+    {
+      title && (
+        <a href={link && link}>
+          <h3 class="title fw-600 cs-fs-20 cs-md-fs-28 cl-dark-black cs-mb-0">
+            {title}
+          </h3>
+        </a>
+      )
+    }
+    {
+      price && (
+        <p class="price cs-fs-18 cs-md-fs-20 cl-yellow fw-600 cs-mb-0 text-end lh-1">
+          <span class="cs-fs-10 cl-black fw-400">từ</span>
+          {price}
+          <span class="cs-fs-10 cl-black fw-400">VND</span>
+        </p>
+      )
+    }
+  </div>
+</div>

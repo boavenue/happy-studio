@@ -1,0 +1,22 @@
+---
+type Props = {
+  sharer: String,
+  title: String,
+  url: String,
+  iconHtml: String,
+  iconName: String,
+};
+
+const { sharer, title, url, iconHtml, iconName } = Astro.props;
+---
+
+<div class="col-6">
+  <div data-sharer={sharer} data-title={title} data-url={url} class="room-detail-list__share-social-item d-flex align-items-center cs-px-10 cs-py-6 radius-8">
+    <div class="room-detail-list__share-social-item__icon cs-pe-10">
+      <div set:html={iconHtml}></div>
+    </div>
+    <div class="room-detail-list__share-social-item__title">
+      <p class="cs-fs-14 fw-700 lh-12 cs-mb-0">{iconName}</p>
+    </div>
+  </div>
+</div>

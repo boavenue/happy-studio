@@ -1,0 +1,39 @@
+---
+import CardRoom from "../CardRoom.astro";
+
+const { rooms, address, description } = Astro.props;
+---
+
+<div class="list-rooms">
+  <div class="list-rooms__heading cs-mb-30">
+    <p class="cs-mb-0 cl-black fw-900 d-flex align-items-center">
+      <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+          <path
+            d="M172.3 501.7C27 291 0 269.4 0 192 0 86 86 0 192 0s192 86 192 192c0 77.4-27 99-172.3 309.7-9.5 13.8-29.9 13.8-39.5 0zM192 272c44.2 0 80-35.8 80-80s-35.8-80-80-80-80 35.8-80 80 35.8 80 80 80z"
+          ></path></svg
+        >
+      </span>
+      <span>
+        <span class="cs-ps-5"> Chi Nhánh </span>
+      </span>
+      <h2 class="cs-fs-40 cl-yellow fw-900 lt-1">{address || ""}</h2>
+      <div class="cs-mb-0" set:html={description || ""} />
+    </p>
+  </div>
+  <div class="row cs-gy-25 cs-lg-gy-30 cs-gx-8 cs-lg-gx-24">
+    {
+      rooms &&
+        rooms.map((room) => (
+          <div class="col-6 col-lg-3 cs-px-4 cs-lg-px-12">
+            <CardRoom
+              imageUrl={room.imageUrl}
+              link={room.link}
+              title={room.title}
+              price={room.price}
+            />
+          </div>
+        ))
+    }
+  </div>
+</div>

@@ -1,10 +1,20 @@
 .list-room-slider {
   &__item {
     &:hover {
-      .list-room-slider__thumbnail {
-        &:after {
-          opacity: 0;
-          visibility: hidden;
+      .list-room-slider {
+        &__thumbnail {
+          @include respond-above(lg) {
+            transform: translateY(-5px);
+          }
+          &:after {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+        &__logo {
+          @include respond-above(lg) {
+            bottom: 25px;
+          }
         }
       }
     }
@@ -13,11 +23,11 @@
   &__thumbnail {
     position: relative;
     overflow: hidden;
-
+    transition: 300ms ease-in-out;
     &:before {
       content: "";
       display: inline-block;
-      padding-top: 65%;
+      padding-top: 120%;
 
       @include respond-above(md) {
         padding-top: 120%;
@@ -25,21 +35,7 @@
     }
 
     &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      opacity: 0;
-      visibility: hidden;
-      background: rgb(0, 0, 0);
-      background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(255, 255, 255, 0) 120%);
-      background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(255, 255, 255, 0) 120%);
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(255, 255, 255, 0) 120%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#ffffff", GradientType=1);
-      transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
-
+      @include gradient-thumbnail();
       @include respond-above(lg) {
         opacity: 1;
         visibility: visible;
@@ -56,6 +52,19 @@
     object-position: center;
     object-fit: cover;
     transform: translate(-50%, -50%);
+  }
+
+  &__logo {
+    position: absolute;
+    max-width: 60px;
+    z-index: 1;
+    height: auto;
+    left: 15px;
+    bottom: 15px;
+    transition: bottom 300ms ease-in-out;
+    @include respond-above(lg) {
+      max-width: 70px;
+    }
   }
 }
 

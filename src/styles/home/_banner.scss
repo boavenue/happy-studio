@@ -40,7 +40,6 @@
       width: 60%;
     }
 
-
     &:after {
       content: "";
       position: absolute;
@@ -63,9 +62,10 @@
   }
 
   &__info {
-    gap: 24px;
+    gap: 16px;
 
     @include respond-below(lg) {
+      gap: 24px;
       color: var(--cl-white) !important;
     }
   }
