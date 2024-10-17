@@ -1,10 +1,8 @@
 import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
 
-import netlify from "@astrojs/netlify";
-
 export default defineConfig({
-  output: "server",
+  site: "https://happy-studio.netlify.app/",
   vite: {
     server: {
       host: '0.0.0.0',
