@@ -35,6 +35,7 @@ const { room } = Astro.props;
 // const { Content } = await room.render();
 const { id, title, description, images, amenities, price, allDayPrice, plusPrice, relatedRooms, googleAdress, googleMapsLink, calendarId } = room.data;
 const currentUrl = Astro.request.url;
+console.log('room'  , images)
 
 ---
 <Layout title="Happy Studio - Netflix & Chill">

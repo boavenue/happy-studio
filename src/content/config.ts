@@ -21,7 +21,7 @@ const roomsSchema = (image: any) => z.object({
   relatedRooms: z.array(z.object({
     id: z.string(),
     title: z.string(),
-    imageUrl: z.string(),
+    imageUrl: z.union([image(), z.string()]),
     price: z.string(),
     link: z.string(),
   })).optional(),
