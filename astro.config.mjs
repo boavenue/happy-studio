@@ -21,13 +21,6 @@ export default defineConfig({
         }
       }
     ],
-    build: {
-      rollupOptions: {
-        output: {
-          assetFileNames: "assets/styles.[hash][extname]",
-        },
-      },
-    },
   },
   adapter: netlify({
     edgeMiddleware: true
