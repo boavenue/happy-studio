@@ -1,8 +1,12 @@
 ---
 interface Props {
   title: string;
+  description: string;
+  images: string;
+  url: string;
 }
-const { title } = Astro.props;
+const { title, description, images, url } = Astro.props;
+import Seo from "@components/Seo.astro";
 import "../styles/index.scss";
 ---
 
@@ -12,8 +16,17 @@ import "../styles/index.scss";
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon/android-chrome-512x512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
     <meta name="generator" content={Astro.generator} />
+    <Seo 
+      title={title} 
+      description={description || 'Với không gian nhỏ xinh, phong cách ấm cúng, home tin rằng bạn sẽ cảm nhận được sự gần gũi và thoải mái như chính ngôi nhà của mình.'}
+      url={Astro.url}
+      image={images || '/images/banner.webp'}
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
