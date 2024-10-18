@@ -177,7 +177,7 @@ const currentUrl = Astro.request.url;
                     </span>
                   </p>
                   <div class="cus-button cs-mt-20 text-center">
-                    <a href="https://www.facebook.com/messages/t/303687992825443" target="_blank" class="button button-default">Đặt Phòng</a>
+                    <a href="https://m.me/happytimestudiosg" target="_blank" class="button button-default">Đặt Phòng</a>
                   </div>
                 </div>
               </div>
@@ -299,18 +299,20 @@ const currentUrl = Astro.request.url;
 </Layout>
 
 <script is:inline>
-  
-  $('[data-show-all="on-all"]').on('click', function() {
+  function activeBehaviorDetail() {
+    $('[data-show-all="on-all"]').on('click', function() {
     $('.room-detail-list__modal').addClass('show');
-  });
-  $('[data-show-all="off-all"]').on('click', function() {
-    $('.room-detail-list__modal').removeClass('show');
-  });
-  $('[data-show-share="on"]').on('click', function() {
-    $('.room-detail-list__share-social').addClass('show');
-  })
-  $('[data-show-share="off"]').on('click', function() {
-    $('.room-detail-list__share-social').removeClass('show');
-  })
-
+    });
+    $('[data-show-all="off-all"]').on('click', function() {
+      $('.room-detail-list__modal').removeClass('show');
+    });
+    $('[data-show-share="on"]').on('click', function() {
+      $('.room-detail-list__share-social').addClass('show');
+    })
+    $('[data-show-share="off"]').on('click', function() {
+      $('.room-detail-list__share-social').removeClass('show');
+    })
+  }
+  document.addEventListener('astro:after-swap', activeBehaviorDetail);
+  activeBehaviorDetail();
 </script>

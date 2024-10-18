@@ -266,3 +266,28 @@ ul {
     }
   }
 }
+
+.loading-spinner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 123;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  transition: opacity 300ms  ease-in-out, visibility 300ms ease-in-out;
+  &.off {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.page-404 {
+  height: 100vh;
+}

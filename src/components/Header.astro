@@ -39,7 +39,7 @@ import { Image } from "astro:assets";
           <a href="/phong" class="header-nav__menu-link cs-fs-30">Loại Phòng</a>
         </li>
         <li class="header-nav__menu-item">
-          <a href="https://www.facebook.com/messages/t/303687992825443" target="_blank" class="header-nav__menu-link cs-fs-30">Đặt Ngay</a>
+          <a href="https://m.me/happytimestudiosg" target="_blank" class="header-nav__menu-link cs-fs-30">Đặt Ngay</a>
         </li>
       </ul>
       <div class="header-nav__footer">
@@ -57,10 +57,14 @@ import { Image } from "astro:assets";
   </div>
 </header>
 <script is:inline>
-  $(".header-hamburger").on("click", function () {
-    $("body").addClass("show");
-  });
-  $(".overlay-background, .header-close").on("click", function () {
-    $("body").removeClass("show");
-  });
+  function activeBehaviorHeader() {
+    $(".header-hamburger").on("click", function () {
+      $("body").addClass("show");
+    });
+    $(".overlay-background, .header-close").on("click", function () {
+      $("body").removeClass("show");
+    });
+  }
+  document.addEventListener('astro:after-swap', activeBehaviorHeader);
+  activeBehaviorHeader();
 </script>

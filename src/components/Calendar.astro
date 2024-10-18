@@ -12,7 +12,7 @@ const { calendarId } = Astro.props;
   <div id="calendar" data-id={calendarId}></div>
 </div>
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', function() {
+  function initCalendarActive() {
     const calendarEl = document.getElementById('calendar');
     const calendarId = calendarEl.getAttribute('data-id');
 
@@ -68,5 +68,7 @@ const { calendarId } = Astro.props;
       }
     });
     calendar.render();
-  });
+  }
+  document.addEventListener('astro:after-swap', initCalendarActive);
+  document.addEventListener('DOMContentLoaded', initCalendarActive);
 </script>

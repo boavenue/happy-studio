@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import Image from "astro/components/Image.astro";
 const currentUrl = Astro.url;
 ---
 
@@ -11,9 +12,21 @@ const currentUrl = Astro.url;
   images={`${currentUrl}/images/banner.webp`}
   url={currentUrl as any}
   >
-  
-  <main class="main-section">
-      <div>hehe</div>
-  </main>
-  
+  <div class="page-404 d-flex flex-column justify-content-center align-items-center text-center">
+    <Image
+      src="/images/404.svg"
+      alt="Happy Studio, NetFlix & Chill"
+      width={331}
+      height={220}
+      class="img-width"
+      style="width: 180px;"
+    />
+    <div class="cs-fs-50 cs-lg-fs-70 cl-yellow fw-700 font-dream cs-mt-20">Oops !</div>
+    <div class="cs-fs-20 fw-600 cl-black lh-12 cs-mt-10">Home không tìm thấy <br class="d-block d-md-none"/>trang bạn đang tìm kiếm rồi</div>
+    <p class="cs-fs-18 cs-mt-5">Bạn muốn khám phá thêm không nào ?</p>
+    <div class="cus-button d-flex flex-column d-sm-block text-center cs-mt-5">
+      <a href="/" class="button button-default sd-lg">Trang Chủ</a>
+      <a href="/phong" class="button button-black sd-lg cs-mt-10 cs-ms-mt-0 cs-sm-ms-10">Danh Sách Phòng</a>
+    </div>
+  </div>  
 </Layout>

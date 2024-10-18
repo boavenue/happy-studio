@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 interface Props {
   title: string;
   description: string;
@@ -9,6 +10,7 @@ import Seo from "@components/Seo.astro";
 import "../styles/index.scss";
 import HeadLibrary from "@components/HeadLibrary.astro";
 import BodyLibrary from "@components/BodyLibrary.astro";
+import Loading from "@components/Loading.astro";
 
 const { 
     title, 
@@ -37,11 +39,19 @@ const {
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-  
     <HeadLibrary />
+    <ViewTransitions />
   </head>
   <body>
+    <Loading />
     <BodyLibrary />
     <slot />
+    <script is:inline>
+      document.addEventListener('astro:page-load', () => {
+        setTimeout(() => {
+          $('.loading-spinner').addClass('off');
+        }, 1000);
+      });
+    </script>
   </body>
 </html>
