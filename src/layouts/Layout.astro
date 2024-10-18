@@ -5,12 +5,12 @@ interface Props {
   images: string;
   url: string;
 }
-const { title, description = 'Với không gian nhỏ xinh, phong cách ấm cúng, home tin rằng bạn sẽ cảm nhận được sự gần gũi và thoải mái như chính ngôi nhà của mình.', images, url } = Astro.props;
 import Seo from "@components/Seo.astro";
 import "../styles/index.scss";
 import HeadLibrary from "@components/HeadLibrary.astro";
 import BodyLibrary from "@components/BodyLibrary.astro";
 
+const { title, description = 'Với không gian nhỏ xinh, phong cách ấm cúng, home tin rằng bạn sẽ cảm nhận được sự gần gũi và thoải mái như chính ngôi nhà của mình.', images, url } = Astro.props;
 ---
 
 <!doctype html>
