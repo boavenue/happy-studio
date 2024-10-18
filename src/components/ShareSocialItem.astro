@@ -20,3 +20,9 @@ const { sharer, title, url, iconHtml, iconName } = Astro.props;
     </div>
   </div>
 </div>
+
+<script is:inline>
+  document.addEventListener('astro:after-swap', function() {
+    window.Sharer.init();
+  });
+</script>
