@@ -10,7 +10,12 @@ import "../styles/index.scss";
 import HeadLibrary from "@components/HeadLibrary.astro";
 import BodyLibrary from "@components/BodyLibrary.astro";
 
-const { title, description = 'Với không gian nhỏ xinh, phong cách ấm cúng, home tin rằng bạn sẽ cảm nhận được sự gần gũi và thoải mái như chính ngôi nhà của mình.', images, url } = Astro.props;
+const { 
+    title, 
+    description = 'Với không gian nhỏ xinh, phong cách ấm cúng, home tin rằng bạn sẽ cảm nhận được sự gần gũi và thoải mái như chính ngôi nhà của mình.', 
+    images = '/banner.jpg', 
+    url 
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -21,17 +26,18 @@ const { title, description = 'Với không gian nhỏ xinh, phong cách ấm cú
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={description} />
     <meta name="description" content={description} />
+    <Seo 
+      title={title} 
+      description={description || 'Với không gian nhỏ xinh, phong cách ấm cúng, home tin rằng bạn sẽ cảm nhận được sự gần gũi và thoải mái như chính ngôi nhà của mình.'}
+      url={url}
+      image={images}
+    />
     <link rel="canonical" href={url} />
     <link rel="icon" type="image/svg+xml" href="/images/favicon/android-chrome-512x512.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-    <Seo 
-      title={title} 
-      description={description || 'Với không gian nhỏ xinh, phong cách ấm cúng, home tin rằng bạn sẽ cảm nhận được sự gần gũi và thoải mái như chính ngôi nhà của mình.'}
-      url={Astro.url}
-      image={images}
-    />
+  
     <HeadLibrary />
   </head>
   <body>
