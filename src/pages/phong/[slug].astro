@@ -37,7 +37,7 @@ const currentUrl = Astro.request.url;
 
 
 ---
-<Layout title={title} description={description} images={images[0].imageUrl.src} url={currentUrl}>
+<Layout title={`Happy Studio - ${title}`} description={description} images={images[0].imageUrl.src} url={currentUrl}>
   <Header />
   <main class="main-section">
     <div class="back-page cus-button d-flex justify-content-center">

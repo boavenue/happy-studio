@@ -5,9 +5,15 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import AllRooms from "@components/rooms/AllRooms.astro";
 // const rooms = await getCollection("rooms");
+const currentUrl = Astro.url;
 ---
 
-<Layout title="Happy Studio - Netflix & Chill">
+<Layout 
+  title="Happy Studio - Danh Sách Phòng"
+  description="Giữa chốn thành thị tấp nập, không gian riêng càng trở nên xa xỉ hơn. Home không chỉ là chốn yên bình dành cho những giờ phút nghỉ ngơi, khoảng lặng để hoàn thành công việc. Mà còn là nơi thắp lên tình yêu, tình bạn và ghi lại những kỷ niệm đáng nhớ."
+  images="/images/banner.webp"
+  url={currentUrl as any}
+  >
   <Header />
   <main class="main-section">
     <AllRooms />
