@@ -22,27 +22,32 @@ const { rooms } = Astro.props;
   </div>
 </div>
 <script is:inline>
-  new Swiper(".swiper", {
-    direction: "horizontal",
-    loop: true,
-    speed: 1400,
-    pauseOnMouseEnter: true,
-    autoplay: {
-      delay: 6000,
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 2,
-        centeredSlides: false,
+  function initSwiper() {
+    new Swiper(".swiper", {
+      direction: "horizontal",
+      loop: true,
+      speed: 1400,
+      pauseOnMouseEnter: true,
+      autoplay: {
+        delay: 6000,
       },
-      992: {
-        slidesPerView: 3,
-        centeredSlides: false,
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+          centeredSlides: false,
+        },
+        992: {
+          slidesPerView: 3,
+          centeredSlides: false,
+        },
+        1200: {
+          slidesPerView: 5,
+          centeredSlides: false,
+        },
       },
-      1200: {
-        slidesPerView: 5,
-        centeredSlides: false,
-      },
-    },
-  });
+    });
+  }
+  document.addEventListener('astro:after-swap', initSwiper);
+  initSwiper();
+  
 </script>
