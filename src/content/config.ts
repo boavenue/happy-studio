@@ -13,6 +13,8 @@ const roomsSchema = (image: any) => z.object({
     description: z.string(),
   })),
   price: z.string(),
+  price3h: z.string(),
+  price4h: z.string(),
   allDayPrice: z.string(),
   plusPrice: z.string(),
   calendarId: z.string(),

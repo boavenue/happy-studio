@@ -70,5 +70,5 @@ const { calendarId } = Astro.props;
     calendar.render();
   }
   document.addEventListener('astro:after-swap', initCalendarActive);
-  document.addEventListener('DOMContentLoaded', initCalendarActive);
+  document.addEventListener('astro:page-load', initCalendarActive);
 </script>

@@ -9,25 +9,25 @@ import { Image } from "astro:assets";
 const roomNQA = [
   {
     title: "NQA-101",
-    price: "360.000",
+    price: "280.000",
     imageUrl: "/images/all/nqa-101.webp",
     link: "/phong/nqa-101",
   },
   {
     title: "NQA-102",
-    price: "360.000",
+    price: "240.000",
     imageUrl: "/images/all/nqa-102.webp",
     link: "/phong/nqa-102",
   },
   {
     title: "NQA-201",
-    price: "360.000",
+    price: "280.000",
     imageUrl: "/images/all/nqa-201.webp",
     link: "/phong/nqa-201",
   },
   {
     title: "NQA-202",
-    price: "360.000",
+    price: "240.000",
     imageUrl: "/images/all/nqa-202.webp",
     link: "/phong/nqa-202",
   },
@@ -35,13 +35,13 @@ const roomNQA = [
 const roomDBT = [
   {
     title: "DBT-402",
-    price: "360.000",
+    price: "280.000",
     imageUrl: "/images/all/dbt-402.webp",
     link: "/phong/dbt-402",
   },
   {
     title: "DBT-502",
-    price: "360.000",
+    price: "280.000",
     imageUrl: "/images/all/dbt-502.webp",
     link: "/phong/dbt-502",
   },
@@ -49,25 +49,25 @@ const roomDBT = [
 const roomNTG = [
   {
     title: "NTG-01",
-    price: "360.000",
+    price: "240.000",
     imageUrl: "/images/all/ntg-01.webp",
     link: "/phong/ntg-01",
   },
   {
     title: "NTG-02",
-    price: "360.000",
+    price: "240.000",
     imageUrl: "/images/all/ntg-02.webp",
     link: "/phong/ntg-02",
   },
   {
     title: "NTG-03",
-    price: "360.000",
+    price: "240.000",
     imageUrl: "/images/all/ntg-03.webp",
     link: "/phong/ntg-03",
   },
   {
     title: "NTG-04",
-    price: "360.000",
+    price: "240.000",
     imageUrl: "/images/all/ntg-04.webp",
     link: "/phong/ntg-04",
   },
@@ -90,7 +90,7 @@ const roomNTG = [
   <div class="text-center cs-mb-60">
     <RoomThanks
       imageUrl="/images/room-thanks.svg"
-      description="Giữa chốn thành thị tấp nập, không gian riêng càng trở nên xa xỉ hơn. Home không chỉ là chốn yên bình dành cho những giờ phút nghỉ ngơi, khoảng lặng để hoàn thành công việc. Mà còn là nơi thắp lên tình yêu, tình bạn và ghi lại những kỷ niệm đáng nhớ."
+      description="Giữa chốn thành thị tấp nập, không gian riêng càng trở nên xa xỉ. Home không chỉ là chốn an yên cho những giờ phút nghỉ ngơi, nơi yên tĩnh để hoàn thành công việc. "
       textColor="black"
       logoColor="black"
       bgSectionColor="#f9e7cd"
@@ -101,7 +101,7 @@ const roomNTG = [
       <CardTitle
         title="Không Gian <br />Happy Studio"
         colorTitle="cl-yellow"
-        description="Bạn cần bao nhiêu riêng tư, Home cũng có nha!"
+        description="Bạn cần bao nhiêu riêng tư, Home gửi bạn bấy nhiêu!"
       />
     </div>
   </div>
@@ -112,17 +112,17 @@ const roomNTG = [
     >
       <RoomList
         address="Nguyễn Quý Anh"
-        description="Mỗi phòng được trang hoàng xinh xắn với đầy đủ tiện nghi. Dù bạn chọn phòng ngập tràn ánh sáng hay phòng với đèn led hình cây thông lấp lánh, <br />chắc chắn bạn sẽ có những giây phút thư giãn tuyệt vời"
+        description="Mỗi phòng được trang hoàng xinh xắn với đầy đủ tiện nghi. <br class='d-none d-lg-block'/>Dù bạn chọn phòng ngập tràn ánh sáng tự nhiên, chắc chắn bạn sẽ có những giây phút thư giãn tuyệt vời."
         rooms={roomNQA}
       />
       <RoomList
         address="Nguyễn Tư Giản"
-        description="Bạn sẽ tìm thấy nơi nghỉ ngơi lý tưởng cho dù bạn đang tìm kiếm một không gian yên tĩnh để thư giãn hay một góc lý tưởng để xem phim. <br />Hãy để Home trở thành nơi bạn gọi là nhà khi xa!"
+        description="Nơi nghỉ ngơi lý tưởng, không gian yên tĩnh để thư giãn và xem phim. <br class='d-none d-lg-block'/>Hãy để Home trở thành nơi bạn gọi là nhà khi xa!"
         rooms={roomNTG}
       />
       <RoomList
         address="Dương Bá Trạc"
-        description="Mỗi phòng mang một vẻ đẹp riêng, từ tông màu ấm áp đến góc xanh mát lành, tạo nên không gian yên bình và đáng yêu cho kỳ nghỉ của bạn."
+        description="Mỗi phòng mang một vẻ đẹp riêng, từ tông màu màu tươi sáng đến gốc trầm ấm áp."
         rooms={roomDBT}
       />
     </div>

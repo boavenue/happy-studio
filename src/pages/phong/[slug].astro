@@ -32,7 +32,7 @@ type Props = {
   room: CollectionEntry<"rooms">;
 };
 const { room } = Astro.props;
-const { id, title, description, images, amenities, price, allDayPrice, plusPrice, relatedRooms, googleAdress, googleMapsLink, calendarId } = room.data;
+const { id, title, description, images, amenities, price, price3h, price4h, allDayPrice, plusPrice, relatedRooms, googleAdress, googleMapsLink, calendarId } = room.data;
 const currentUrl = Astro.request.url;
 
 
@@ -152,7 +152,7 @@ const currentUrl = Astro.request.url;
                     <div class="cs-pe-10">
                       <h4 class="cs-fs-20 fw-600 cl-black lh-12 cs-mb-2">Chỉ từ</h4>
                       <div class="cs-fs-30 cl-yellow fw-600 lh-12">
-                        ₫{price}<span class="cs-fs-16 cl-black fw-600"> / 4h</span>
+                        ₫{price}<span class="cs-fs-16 cl-black fw-600"> / 2h</span>
                       </div>
                     </div>
                     <div>
@@ -160,7 +160,15 @@ const currentUrl = Astro.request.url;
                     </div>
                   </div>
                   <div class="room-detail-services__price-default cs-mt-20">
-                    <div class="d-flex">
+                    <div class="d-flex flex-wrap">
+                      <div class="room-detail-services__price-default__item cs-p-12">
+                        <p class="cs-fs-14 cl-black fw-600 lh-12 cs-mb-2">Chỉ từ 3h</p>
+                        <p class="cs-fs-20 cl-yellow fw-600 lh-12 cs-mb-0">₫{price3h}</p>
+                      </div>
+                      <div class="room-detail-services__price-default__item cs-p-12">
+                        <p class="cs-fs-14 cl-black fw-600 lh-12 cs-mb-2">Chỉ từ 4h</p>
+                        <p class="cs-fs-20 cl-yellow fw-600 lh-12 cs-mb-0">₫{price4h}</p>
+                      </div>
                       <div class="room-detail-services__price-default__item cs-p-12">
                         <p class="cs-fs-14 cl-black fw-600 lh-12 cs-mb-2">Check-In từ 20h - 9h</p>
                         <p class="cs-fs-20 cl-yellow fw-600 lh-12 cs-mb-0">₫{allDayPrice}</p>
@@ -188,7 +196,7 @@ const currentUrl = Astro.request.url;
           <div class="cs-mb-30">
             <div class="room-detail-calendar">
               <h2 class="fw-700 cl-black cs-fs-24">Lịch đặt phòng</h2>
-              <p class="cs-fs-16 cs-md-fs-14 fw-400">Chào bạn! Trước khi bắt đầu hành trình khám phá, hãy cùng kiểm tra lịch của home nha</p>
+              <p class="cs-fs-16 cs-md-fs-14 fw-400">Chào bạn! Trước khi bắt đầu hành trình khám phá, nhớ check lịch của Home nha</p>
               <Calendar calendarId={calendarId} />
             </div>
           </div>
@@ -205,7 +213,7 @@ const currentUrl = Astro.request.url;
           <hr class="cs-my-40"/>
           <div class="room-detail-order">
             <div class="list-room-slider">
-              <h2 class="fw-700 cl-black cs-fs-24">Bạn đang tìm một không gian nghỉ ngơi tuyệt vời?</h2>
+              <h2 class="fw-700 cl-black cs-fs-24">Bạn đang tìm một không gian ?</h2>
               <p class="cs-fs-16 cs-md-fs-14 cs-mb-24">Home còn những phòng khác để bạn tham khảo đây</p>
               <div class="row cs-gy-25 cs-lg-gy-30 cs-gx-8 cs-lg-gx-24">
                 {relatedRooms && relatedRooms.map(related => (
