@@ -22,7 +22,7 @@ const { calendarId } = Astro.props;
         center: 'title',
         right: 'listDay,listWeek,listMonth,listYear'
       },
-      initialView: 'listDay',
+      initialView: 'listYear',
       displayEventTime: false,
       googleCalendarApiKey: 'AIzaSyD5gdkz1cmkFvapshmoGZml3qg3fl78vrQ',
       // events: 'boavenuefew@gmail.com',
@@ -44,7 +44,6 @@ const { calendarId } = Astro.props;
           calendar.setOption('aspectRatio', 'auto');
       },
       eventContent: (arg) => { // Tùy chỉnh nội dung của sự kiện
-          console.log(arg.event);
           const { title, start, end } = arg.event;
           const startTime = start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false});
           const endTime = end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
